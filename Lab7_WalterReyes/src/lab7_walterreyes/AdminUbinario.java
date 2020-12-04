@@ -13,51 +13,46 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author hp
+ */
+public class AdminUbinario {
+ private ArrayList<Persona>lista = new ArrayList();
+ File archivo;
 
-public class Admin_compi_binario {
- private ArrayList<Compilador>compis = new ArrayList();
- private File archivo = null;
-    public Admin_compi_binario(String path) {
-        archivo = new File(path);
+    public AdminUbinario(String path) {
+    archivo = new File(path);
+
     }
 
-    public ArrayList<Compilador> getCompis() {
-        return compis;
-    }
-
-    public void setCompis(ArrayList<Compilador> compis) {
-        this.compis = compis;
-    }
-
-    public File getArchivo() {
-        return archivo;
-    }
-
-    public void setArchivo(File archivo) {
+    public AdminUbinario(ArrayList<Persona> lista, File archivo) {
+        this.lista = lista;
         this.archivo = archivo;
     }
-    //Mutador Extra
-    public void setCompis(Compilador c){
-        compis.add(c);
+ // extra
+    public void setLista(Persona p){
+        lista.add(p);
     }
 
     @Override
     public String toString() {
-        return "Admin_compi_binario{" + "compis=" + compis + ", archivo=" + archivo + '}';
+        return "AdminUbinario{" + "lista=" + lista + ", archivo=" + archivo + '}';
     }
     
-    public void cargarArchivo() {
+    
+  public void cargarArchivo() {
         try {
-            compis = new ArrayList();
-            Compilador temp;
+            lista = new ArrayList();
+           Persona temp;
             if (archivo.exists()) {
                 FileInputStream entrada
                         = new FileInputStream(archivo);
                 ObjectInputStream objeto
                         = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Compilador) objeto.readObject()) != null) {
-                        compis.add(temp);
+                    while ((temp = (Persona) objeto.readObject()) != null) {
+                        lista.add(temp);
                     }
                 } catch (EOFException e) {
                    
@@ -76,7 +71,7 @@ public class Admin_compi_binario {
         try {
             fw = new FileOutputStream(archivo);
             bw = new ObjectOutputStream(fw);
-            for (Compilador t : compis) {
+            for (Persona t : lista) {
                 bw.writeObject(t);
             }
             bw.flush();

@@ -5,8 +5,12 @@
  */
 package lab7_walterreyes;
 
+import java.io.Serializable;
 
-public class Persona {
+
+public class Persona implements Serializable{
+    private static final long SerialVersionUID=777L;
+
   private String nombre;
   private String Apellido;
   private String Usuario;
@@ -52,6 +56,11 @@ public class Persona {
 
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
+    }
+
+    @Override
+    public String toString() {
+        return "nombre: " + nombre + ", Apellido: " + Apellido + " ";
     }
   
   

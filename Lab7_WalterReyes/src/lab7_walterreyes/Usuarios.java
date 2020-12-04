@@ -13,6 +13,10 @@ public class Usuarios extends Persona{
         super();
     }
 
+    public Usuarios(String nombre, String Apellido, String Usuario, String Contraseña) {
+        super(nombre, Apellido, Usuario, Contraseña);
+    }
+    
     public Usuarios(Compilador compi, String nota, String nombre, String Apellido, String Usuario, String Contraseña) {
         super(nombre, Apellido, Usuario, Contraseña);
         this.compi = compi;

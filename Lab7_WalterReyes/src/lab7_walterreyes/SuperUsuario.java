@@ -18,6 +18,11 @@ public class SuperUsuario extends Persona {
         super(nombre, Apellido, Usuario, Contraseña);
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
    
     
 }
