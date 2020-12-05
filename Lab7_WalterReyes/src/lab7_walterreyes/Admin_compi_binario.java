@@ -38,7 +38,7 @@ public class Admin_compi_binario {
     }
     //Mutador Extra
     public void setCompis(Compilador c){
-        compis.add(c);
+       this.compis.add(c);
     }
 
     @Override

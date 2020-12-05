@@ -3,6 +3,7 @@ package lab7_walterreyes;
 
 import java.io.Serializable;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Compilador implements Serializable  {
@@ -16,12 +17,13 @@ public class Compilador implements Serializable  {
     private float intermedio;
     private float optimizador;
     private float generador;
-    private JTable tabla;
+    private DefaultTableModel modelo;
+    private DefaultTableModel Error;
 
     public Compilador() {
     }
 
-    public Compilador(String nombre, String creador, float lineas, float léxico, float sintático, float semántico, float intermedio, float optimizador, float generador, JTable tabla) {
+    public Compilador(String nombre, String creador, float lineas, float léxico, float sintático, float semántico, float intermedio, float optimizador, float generador, DefaultTableModel modelo, DefaultTableModel Error) {
         this.nombre = nombre;
         this.creador = creador;
         this.lineas = lineas;
@@ -31,17 +33,31 @@ public class Compilador implements Serializable  {
         this.intermedio = intermedio;
         this.optimizador = optimizador;
         this.generador = generador;
-        this.tabla = tabla;
+        this.modelo = modelo;
+        this.Error = Error;
     }
 
-    public JTable getTabla() {
-        return tabla;
+    public DefaultTableModel getModelo() {
+        return modelo;
     }
 
-    public void setTabla(JTable tabla) {
-        this.tabla = tabla;
+    public void setModelo(DefaultTableModel modelo) {
+        this.modelo = modelo;
     }
-    
+
+    public DefaultTableModel getError() {
+        return Error;
+    }
+
+    public void setError(DefaultTableModel Error) {
+        this.Error = Error;
+    }
+
+   
+
+   
+
+   
    
 
     public String getNombre() {
@@ -118,7 +134,7 @@ public class Compilador implements Serializable  {
 
     @Override
     public String toString() {
-        return nombre ;
+        return creador ;
     }
             
             
