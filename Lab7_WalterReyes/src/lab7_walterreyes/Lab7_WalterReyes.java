@@ -1116,15 +1116,21 @@ public class Lab7_WalterReyes extends javax.swing.JFrame {
         }
     }
     private void cb_compiladoresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_compiladoresItemStateChanged
-        eliminar();
+        
         if(evt.getStateChange()==1){
            
         
-        Compilador c = ((Compilador)cb_compiladores.getSelectedItem());
         
-        DefaultTableModel modelo = (DefaultTableModel)c.getModelo();
-        jTable3.setModel(modelo);
-                 
+          
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+            Compilador c1=(Compilador )cb_compiladores.getSelectedItem();
+            DefaultTableModel modelo22=(DefaultTableModel)c1.getModelo();
+             DefaultTableModel modelo2 = (DefaultTableModel) jTable3.getModel();
+
+
+
+
+            jTable3.setModel(modelo22);
        }
                  
     }//GEN-LAST:event_cb_compiladoresItemStateChanged
